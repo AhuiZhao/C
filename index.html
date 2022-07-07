@@ -1,0 +1,129 @@
+
+<!--A Simple Clock-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>clock</title>
+  <style>
+       #all{
+	width: 800px;
+	height: 450px;
+	border: 1px solid green;
+	position:absolute;
+    top:50%;
+    left:50%;
+    margin:-225px 0 0 -400px;
+}
+    .container {
+      margin-top: 30px;
+    }
+    .time {
+      font-size: 500%;
+      text-align: center;
+    }
+
+    .date {
+      font-size: 280%;
+      text-align: center;
+    }
+
+    .week {
+      font-size: 280%;
+      text-align: center;
+    }
+    .intro{
+      text-align: center;
+      margin-top: 100px;
+      font-size: 150%;
+    }
+
+    /* .img {
+      text-align: right;
+    }
+    img {
+      width: 300px;
+      height: 300px;
+    } */
+  </style>
+</head>
+<div id="wrapper">   
+ <div id="all">   
+<body>
+  <div class="container">
+    <p style="text-align: center" id=span_dt_dt></p>
+    <div class="intro">时不我待啊，朋友们！</div>
+    <div class="time" id="time">00:00:00</div>
+    <div class="date" id="date">1月1日</div>
+    <div class="week" id="week">星期一</div>
+    
+   </div>
+  </div>
+  <!-- <div class="img" id="img">
+   < img src="http://img.mp.itc.cn/q_70,c_zoom,w_640/upload/20170511/189edb8fc9d04eaa9597351927f19eb8_th.jpg">
+  </div>
+  <p>DESIGNED BY &copy;CHEN CC</p > -->
+  <script>
+	  <!--
+//document.write("");
+function show_date_time(){
+window.setTimeout("show_date_time()", 1000);
+BirthDay=new Date("12/26/2022 08:00:00");//这个日期是可以修改的
+today=new Date();
+timeold=(BirthDay.getTime()-today.getTime());
+msPerDay=24*60*60*1000
+e_daysold=timeold/msPerDay
+daysold=Math.floor(e_daysold);
+e_hrsold=(e_daysold-daysold)*24;
+hrsold=Math.floor(e_hrsold);
+span_dt_dt.innerHTML="研究生初试<align=center><font  size=6>"+daysold+"天"+hrsold+"小时"+"<br></font><br>" ; // 这里你自己改。就是倒计时的样式，字体大小size=4 颜色是color
+}
+show_date_time();
+//-->
+        var detectOrient = function () {
+    var width = document.documentElement.clientWidth
+    var height = document.documentElement.clientHeight
+    var $wrapper = document.getElementById("wrapper")
+ 
+    style = "";
+    if (width >= height) { // 横屏
+      style += "width:" + width + "px;";
+      style += "height:" + height + "px;";
+      style += "-webkit-transform: rotate(0); transform: rotate(0);";
+      style += "-webkit-transform-origin: 0 0;";
+      style += "transform-origin: 0 0;";
+    }
+    else { // 竖屏
+      style += "width:" + height + "px;";
+      style += "height:" + width + "px;";
+ 
+      style += "-webkit-transform: rotate(90deg); transform: rotate(90deg);";
+      style += "-webkit-transform-origin: " + width / 2 + "px " + width / 2 + "px;";
+      style += "transform-origin: " + width / 2 + "px " + width / 2 + "px;";
+ 
+    }
+    $wrapper.style.cssText = style;
+  }
+  window.onresize = detectOrient;
+  detectOrient();
+    function update() {
+      var date = new Date()
+      var utc8DiffMinutes = date.getTimezoneOffset() + 480
+      date.setMinutes(date.getMinutes() + utc8DiffMinutes)
+      var timeString = date.getHours() + ':' + ('0' + date.getMinutes()).slice(-2) + ':' + ('0' + date.getSeconds()).slice(-2)
+      // var timeString = date.toLocaleTimeString("it-IT")
+      var dateString = (date.getMonth() + 1) + '月' + date.getDate() + '日'
+      var weekList = ['日', '一', '二', '三', '四', '五', '六']
+      var weekString = '星期' + weekList[date.getDay()]
+      document.getElementById("time").innerHTML = timeString
+      document.getElementById("date").innerHTML = dateString
+      document.getElementById("week").innerHTML = weekString
+    }
+    update()
+    setInterval("update()", 1000)
+  </script>
+</body>
+
+</html>
+</div>
