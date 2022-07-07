@@ -25,12 +25,12 @@
     }
 
     .date {
-      font-size: 280%;
+      font-size: 200%;
       text-align: center;
     }
 
     .week {
-      font-size: 280%;
+      font-size: 200%;
       text-align: center;
     }
 
@@ -54,16 +54,12 @@
     
    </div>
   </div>
-  <!-- <div class="img" id="img">
-   < img src="http://img.mp.itc.cn/q_70,c_zoom,w_640/upload/20170511/189edb8fc9d04eaa9597351927f19eb8_th.jpg">
-  </div>
-  <p>DESIGNED BY &copy;CHEN CC</p > -->
   <script>
 	  <!--
 //document.write("");
 function show_date_time(){
 window.setTimeout("show_date_time()", 1000);
-BirthDay=new Date("12/26/2022 08:00:00");//这个日期是可以修改的
+BirthDay=new Date("12/26/2022 08:00:00");//日期
 today=new Date();
 timeold=(BirthDay.getTime()-today.getTime());
 msPerDay=24*60*60*1000
@@ -71,7 +67,7 @@ e_daysold=timeold/msPerDay
 daysold=Math.floor(e_daysold);
 e_hrsold=(e_daysold-daysold)*24;
 hrsold=Math.floor(e_hrsold);
-span_dt_dt.innerHTML="研究生初试<align=center><font  size=6>"+daysold+"天"+hrsold+"小时"+"<br></font><br>" ; // 这里你自己改。就是倒计时的样式，字体大小size=4 颜色是color
+span_dt_dt.innerHTML="初试<align=center><font  size=6>"+daysold+"天"+hrsold+"小时"+"<br></font><br>" ; 
 }
 show_date_time();
 //-->
